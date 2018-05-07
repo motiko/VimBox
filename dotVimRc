@@ -27,7 +27,7 @@
 "   Textmate disables font smoothing only for dark backgrounds, but MacVim
 "   only has a global setting. If you use dark backgrounds consider disabling.
 "   https://stackoverflow.com/questions/24598390/macvim-thicker-font-rendering-compared-to-textmate
-"   defaults write org.vim.MacVim AppleFontSmoothing -int 0  
+"   defaults write org.vim.MacVim AppleFontSmoothing -int 0
 "  4. Speed up full screen transition:
 "  defaults write org.vim.MacVim MMFullScreenFadeTime 0.05
 "
@@ -105,6 +105,16 @@
 " if v:version < 799
   " echomsg "VimBox works best with Vim8 or newer. Please upgrade your Vim/MacVim"
 " endif
+
+if has('python3')
+    command! -nargs=1 Py py3 <args>
+    set pythonthreedll=/usr/local/Frameworks/Python.framework/Versions/3.6/Python
+    set pythonthreehome=/usr/local/Frameworks/Python.framework/Versions/3.6
+else
+    command! -nargs=1 Py py <args>
+    set pythondll=/usr/local/Frameworks/Python.framework/Versions/2.7/Python
+    set pythonhome=/usr/local/Frameworks/Python.framework/Versions/2.7
+endif
 
 if has('gui_win32')
   set rtp+=~/.vim
