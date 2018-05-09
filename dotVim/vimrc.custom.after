@@ -2,3 +2,18 @@
 " loading any of the stock bundles/settings.
 
 set guifont=Inconsolata-dz\ for\ Powerline:h18
+
+nmap <C-[> :tabm -1<CR>
+nmap <C-]> :tabm +1<CR>
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+function DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
+endfunction
+
+" :execute 'tabedit log/rspec/`date +\%s`.log | r ! rspec # ' | w
