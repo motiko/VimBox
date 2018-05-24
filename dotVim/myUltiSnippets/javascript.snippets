@@ -1,70 +1,39 @@
 #jordow's snippets:
+snippet rclass "react class"
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+class ${1:Name} extends Component {
+	static propTypes = {
+		${2:isVisible }: PropTypes.bool
+	}
 
-# module definition
-snippet mod "Module declaration"
-/**
- * @providesModule ${1:`!p snip.rv = snip.basename`}
- */
+	static defaultProps = {
+		$2: true
+	}
 
-var $1 = ${2:{
-  ${3: /* fields */}
-}};
+	state={
+		${3:isOpen}: true
+	}
 
-module.exports = $1;
+	render(){
+		const {} = this.props
+		const {} = this.state
+		return ()
+	}
+}
+export default $1 
 endsnippet
-
+# module definition
 snippet for "for (...) {...}" !
 for (var ${2:i} = 0; $2 < ${1:Things}.length; $2++) {
 	${3:$1[$2]}$0
 }
 endsnippet
 
-snippet te "tripple equals" !w
-${1:one} === ${2:two}$0
-endsnippet
-
-snippet ne "not tripple equals" !w
-${1:one} !== ${2:two}
-endsnippet
-
 snippet a
 <a href="$1"${2: class="${3:link}"}>
 	$0
 </a>
-endsnippet
-
-# Then do imap (  (<Tab>
-#snippet ( "paren insertion" !w
-#($0)
-#endsnippet
-
-snippet forr "for (...) {...}" !
-for (${2:i} = 0; $2 < ${1:Things}.length; $2++) {
-	${3:$1[$2]}$0
-}
-endsnippet
-
-snippet forin "forin (...) {...}" !
-for (var ${1:key} in ${2:obj}) {
-	if (!$2.hasOwnProperty($1)) {
-		continue;
-	}
-	${3:$2[$1]}$0
-}
-endsnippet
-
-snippet throwIf "throwIf(bool, ERR);" !
-throwIf(${1:condition}, ${2:ERR});
-endsnippet
-
-snippet db "debugger;" !
-debugger;
-endsnippet
-
-snippet dbif "if(x) debugger;" !
-if (${1:cond}) {
-	debugger;
-}
 endsnippet
 
 snippet forinn "forinn (...) {...}" !
@@ -80,10 +49,6 @@ snippet ifcond "ifcondition" !
 if (${VISUAL:expr}) {
 	$0
 }
-endsnippet
-
-snippet ret "return ;" !
-return $0;
 endsnippet
 
 snippet if "if" !

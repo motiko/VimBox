@@ -1,19 +1,45 @@
 " Overwrite this file with whatever you want. This will be executed after
 " loading any of the stock bundles/settings.
-
 set guifont=Inconsolata-dz\ for\ Powerline:h18
 
-nmap <C-[> :tabm -1<CR>
-nmap <C-]> :tabm +1<CR>
+let g:netrw_liststyle = 3
 
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+" set path+=**
+" nnoremap <Leader>t :tabedit **/*
+" nnoremap <Leader>v :vsplit **/*
+" nnoremap <Leader>s :split **/*
 
-function DeleteHiddenBuffers()
-    let tpbl=[]
-    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
-    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
-        silent execute 'bwipeout' buf
-    endfor
-endfunction
+nnoremap U  <C-r>
+nnoremap <Leader>i <C-I>
+nnoremap <Leader>t :CtrlPTag<cr>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <silent> <Leader><Leader> :noh<CR>
+nnoremap <Leader>c :cd %:h <bar> pwd <CR>
+nnoremap <D-[> :tabm -1<CR>
+nnoremap <D-]> :tabm +1<CR>
+nnoremap <BS> <C-^>
 
+let g:UltiSnipsExpandTrigger = "<c-e>"
+let g:UltiSnipsListSnippets  = "<c-tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-f>"
+let g:UltiSnipsJumpBackwardTrigger= "<c-g>"
+
+nnoremap <C-p> <C-o>
+nnoremap <C-o> <C-i>
+
+
+hi IncSearch guibg=white
+
+set wildignore+=*.bmp,*.gif,*.ico,*.jpg,*.png,*.ico
+set wildignore+=*.pdf,*.psd
+
+" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 " :execute 'tabedit log/rspec/`date +\%s`.log | r ! rspec # ' | w
+" call <sid>X('MatchParen',   s:syntax_bg,     s:hue_6_2,          '')
+" let g:syntastic_javascript_checkers = ['javascript/eslint']
+set foldmethod=indent   
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2

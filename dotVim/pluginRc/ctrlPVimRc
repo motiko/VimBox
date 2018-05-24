@@ -85,7 +85,7 @@ else
           \ 'AcceptSelection("e")': ['<c-t>'],
           \ 'AcceptSelection("h")': ['<c-v>'],
           \ 'AcceptSelection("v")': ['<c-s>'],
-          \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+          \ 'AcceptSelection("o")': ['<cr>', '<2-LeftMouse>'],
           \ 'PrtClearCache()':      ['<D-C>'],
           \ 'PrtDeleteEnt()':       ['<F7>'],
           \ 'PrtExit()':            ['<c-l>', '<esc>', '<c-c>', '<c-g>'],

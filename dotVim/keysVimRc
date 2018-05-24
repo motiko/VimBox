@@ -58,7 +58,7 @@ nmap K <nop>
 
 
 " Always gets out of autocomplete's and just lets you enter the newline!
-imap <C-Cr> <Left><Right><Cr>
+" imap <C-Cr> <Left><Right><Cr>
 
 " ==== My favorite way of avoiding the escape key - feel free to delete all this
 " == c-l escapes and saves, avoid the pinky stretch
@@ -103,21 +103,21 @@ imap <C-j> <esc>Ji
 " imap <C-o> <Esc> o
 
 " Until NeoVim comes, we'll have these
-imap <C-o> <Esc> O
+" imap <C-o> <Esc> O
 imap <S-Enter> <End><Cr>
 
 
 " Huge saver! Why do you need to press shift when executing a command?
-nnoremap ; :
+" nnoremap ; :
 
 " fast scrolling using control when in command mode (keeping the j/k paradigm)
-map <C-j> <C-d>
-map <C-k> <C-u>
+map <C-j> 10j
+map <C-k> 10k
 
 " Make S always delete until the point where you'd want to start typing -
 " with some indent plugins, or settings the desired behavior is lost - this
 " restores it. (Doesn't always work - looking for better solution)
-nmap S ddO
+" nmap S ddO
 
 " ==== Window and split navigation ===
 "Tab through your splits! (Shift tab won't ever work on terminal :( )
@@ -131,10 +131,10 @@ imap <c-S-Tab> <Esc>:tabprev<Cr>
 nmap <c-Tab> :tabnext<Cr>
 nmap <c-S-Tab> :tabprev<Cr>
 
-imap <D->> <Esc>:vertical resize +10<CR>
-imap <D->> <Esc>:vertical resize +10<CR>
-nmap <D->> :vertical resize +10<CR>
-nmap <D-<> :vertical resize -10<CR>
+" imap <D->> <Esc>:vertical resize +10<CR>
+" imap <D->> <Esc>:vertical resize +10<CR>
+" nmap <D->> :vertical resize +10<CR>
+" nmap <D-<> 0vertical resize -10<CR>
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -306,9 +306,9 @@ vmap <F5> :sort ui<Cr>
 
 
 " space through your tabs!
-map <Space> gt
+" map <Space> gt
 " shift-space backwards - doesn't work on terminal, I believe
-map <s-Space> gT
+" map <s-Space> gT
 
 " Unfortunately the default `<c-c>` won't cause fuf to exit or cancel a search.
 if g:playWellWithFuzzyFinder
@@ -325,21 +325,21 @@ endif
 "movement without ever leaving insert mode! We should probably use that
 "everywhere. Unfortunately, that doesn't work with fuzzy finder, so we have to
 "use a *worse* behavior (home, as opposed to first non-whitespace char.)
-if g:playWellWithFuzzyFinder
-  imap <C-a> <home>
-else
-  " Uses noremap because we already have c-o mapped.
-  " Hmmmm, this doesn't work - ends up inserting ^ characters sometimes.
-  inoremap <C-a> <c-o>^
-endif
+" if g:playWellWithFuzzyFinder
+"   imap <C-a> <home>
+" else
+"   " Uses noremap because we already have c-o mapped.
+"   " Hmmmm, this doesn't work - ends up inserting ^ characters sometimes.
+"   inoremap <C-a> <c-o>^
+" endif
 
 map! <c-e> <End>
-map! <c-f> <Right>
-map! <c-b> <Left>
+" map! <c-f> <Right>
+" map! <c-b> <Left>
 map! <c-d> <Delete>
-noremap! <c-n> <Down>
-noremap! <c-p> <Up>
-inoremap <c-g> <c-p>
+" noremap! <c-n> <Down>
+" noremap! <c-p> <Up>
+" inoremap <c-g> <c-p>
 
 " Command line (Need to map these once more for inc-search to work).
 cmap <c-a> <Home>
